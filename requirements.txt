@@ -1,0 +1,4 @@
+PyMuPdf==1.21.1
+eml-parser==1.17.5
+python-magic==0.4.27
+opencv-python-headless==4.7.0.68

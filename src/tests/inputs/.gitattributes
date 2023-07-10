@@ -1,0 +1,3 @@
+specimen.pdf !filter !diff !merge text
+specimen.png !filter !diff !merge image
+specimen.tiff !filter !diff !merge image
