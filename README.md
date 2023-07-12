@@ -1,11 +1,16 @@
 # @axa-fr/axa-fr-splitter
 
-[![Continuous Integration](https://github.com/AxaFrance/axa-fr-splitter/actions/workflows/python-publish.yml/badge.svg)](https://github.com/AxaFrance/axa-fr-splitter/actions/workflows/python-publish.yml)
-[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=<INSERT SONAR SPLITTER PROJECT>&metric=alert_status)](https://sonarcloud.io/dashboard?id=<INSERT SONAR SPLITTER PROJECT>)
-[![Reliability](https://sonarcloud.io/api/project_badges/measure?project=<INSERT SONAR SPLITTER PROJECT>&metric=reliability_rating)](https://sonarcloud.io/component_measures?id=<INSERT SONAR SPLITTER PROJECT>&metric=reliability_rating)
-[![Security](https://sonarcloud.io/api/project_badges/measure?project=<INSERT SONAR SPLITTER PROJECT>&metric=security_rating)](https://sonarcloud.io/component_measures?id=A<INSERT SONAR SPLITTER PROJECT>&metric=security_rating)
-[![Code Coverage](https://sonarcloud.io/api/project_badges/measure?project=<INSERT SONAR SPLITTER PROJECT>&metric=coverage)](https://sonarcloud.io/component_measures?id=<INSERT SONAR SPLITTER PROJECT>&metric=Coverage)
-[![Twitter](https://img.shields.io/twitter/follow/GuildDEvOpen?style=social)](https://twitter.com/intent/follow?screen_name=GuildDEvOpen)
+[//]: # ([![Continuous Integration]&#40;https://github.com/AxaFrance/axa-fr-splitter/actions/workflows/python-publish.yml/badge.svg&#41;]&#40;https://github.com/AxaFrance/axa-fr-splitter/actions/workflows/python-publish.yml&#41;)
+
+[//]: # ([![Quality Gate]&#40;https://sonarcloud.io/api/project_badges/measure?project=<INSERT SONAR SPLITTER PROJECT>&metric=alert_status&#41;]&#40;https://sonarcloud.io/dashboard?id=<INSERT SONAR SPLITTER PROJECT>&#41;)
+
+[//]: # ([![Reliability]&#40;https://sonarcloud.io/api/project_badges/measure?project=<INSERT SONAR SPLITTER PROJECT>&metric=reliability_rating&#41;]&#40;https://sonarcloud.io/component_measures?id=<INSERT SONAR SPLITTER PROJECT>&metric=reliability_rating&#41;)
+
+[//]: # ([![Security]&#40;https://sonarcloud.io/api/project_badges/measure?project=<INSERT SONAR SPLITTER PROJECT>&metric=security_rating&#41;]&#40;https://sonarcloud.io/component_measures?id=A<INSERT SONAR SPLITTER PROJECT>&metric=security_rating&#41;)
+
+[//]: # ([![Code Coverage]&#40;https://sonarcloud.io/api/project_badges/measure?project=<INSERT SONAR SPLITTER PROJECT>&metric=coverage&#41;]&#40;https://sonarcloud.io/component_measures?id=<INSERT SONAR SPLITTER PROJECT>&metric=Coverage&#41;)
+
+[//]: # ([![Twitter]&#40;https://img.shields.io/twitter/follow/GuildDEvOpen?style=social&#41;]&#40;https://twitter.com/intent/follow?screen_name=GuildDEvOpen&#41;)
 
 The axa-fr-splitter package aims at providing tools to process several types of documents (pdf, tiff, ...) into images using Python.
 
