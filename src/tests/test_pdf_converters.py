@@ -17,7 +17,9 @@ def run_test(self, file_path: str, file_handler: FileHandler, expected_results=N
     start = time.time()
 
     with open(file_path, "rb") as file_stream:
-        results = file_handler.split_document(Path(file_path).name, file_stream)
+        results = file_handler.split_document(
+            Path(file_path).name, file_stream.read()
+        )
         results = list(results)
 
     end = time.time()
