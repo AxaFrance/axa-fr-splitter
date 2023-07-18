@@ -5,7 +5,7 @@ with open("requirements.txt") as f:
     requirements = f.read().splitlines()
 
 setuptools.setup(
-    name="splitter",
+    name="axa-fr-splitter",
     version=version.VERSION,
     packages=["splitter"],
     package_dir={"": "src"},
