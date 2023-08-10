@@ -26,11 +26,11 @@ pip install axa-fr-splitter
 
 
 ```python
-from splitter.file_handler import FileHandler
-from splitter.image_handler import ImageHandler
-from splitter.magic_mime_reader import MagicMimeReader
-from splitter.pdf_handler import PdfHandlerParams, FitzPdfHandler
-from splitter.tiff_handler import TifHandler
+from axa_fr_splitter.file_handler import FileHandler
+from axa_fr_splitter.image_handler import ImageHandler
+from axa_fr_splitter.magic_mime_reader import MagicMimeReader
+from axa_fr_splitter.pdf_handler import PdfHandlerParams, FitzPdfHandler
+from axa_fr_splitter.tiff_handler import TifHandler
 
 file_handler = FileHandler(MagicMimeReader())
 image_handler = ImageHandler()

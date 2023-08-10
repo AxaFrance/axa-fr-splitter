@@ -3,9 +3,9 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Iterable, Optional, IO
 
-from splitter import IExtensionHandler
-from splitter.mime_reader_interface import IMimeReader
-from splitter.file import File, build_file
+from axa_fr_splitter import IExtensionHandler
+from axa_fr_splitter.mime_reader_interface import IMimeReader
+from axa_fr_splitter.file import File, build_file
 
 
 class UnsupportedFormat(Exception):

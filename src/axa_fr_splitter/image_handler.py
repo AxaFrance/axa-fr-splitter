@@ -4,10 +4,10 @@ from typing import IO
 import cv2
 import numpy as np
 
-from splitter.errors import ConvertError
-from splitter.extension_handler_interface import IExtensionHandler
-from splitter.file import build_file
-from splitter.image import normalize_size
+from axa_fr_splitter.errors import ConvertError
+from axa_fr_splitter.extension_handler_interface import IExtensionHandler
+from axa_fr_splitter.file import build_file
+from axa_fr_splitter.image import normalize_size
 
 
 class ConvertImageError(ConvertError):

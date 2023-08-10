@@ -1,7 +1,7 @@
 import mimetypes
 from typing import IO
 
-from splitter.mime_reader_interface import IMimeReader
+from axa_fr_splitter.mime_reader_interface import IMimeReader
 
 
 class MimeReader(IMimeReader):
