@@ -1,18 +1,15 @@
 import time
 import logging
-from pathlib import Path
-from unittest.mock import MagicMock
-
+import unittest
+import base64
 import cv2
 
-from splitter.eml_handler import EmlHandler
-from splitter.file_handler import FileHandler
-
-import unittest
-
-from splitter.image_handler import ImageHandler
-from splitter.mime_reader import MimeReader
-import base64
+from pathlib import Path
+from unittest.mock import MagicMock
+from axa_fr_splitter.eml_handler import EmlHandler
+from axa_fr_splitter.file_handler import FileHandler
+from axa_fr_splitter.image_handler import ImageHandler
+from axa_fr_splitter.mime_reader import MimeReader
 
 BASE_PATH = Path(__file__).parent / "inputs"
 

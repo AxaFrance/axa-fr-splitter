@@ -1,13 +1,11 @@
 import time
 import logging
-from pathlib import Path
-
-from splitter.file_handler import FileHandler
-
 import unittest
 
-from splitter.mime_reader import MimeReader
-from splitter.tiff_handler import TifHandler
+from pathlib import Path
+from axa_fr_splitter.file_handler import FileHandler
+from axa_fr_splitter.mime_reader import MimeReader
+from axa_fr_splitter.tiff_handler import TifHandler
 
 BASE_PATH = Path(__file__).parent / "inputs"
 

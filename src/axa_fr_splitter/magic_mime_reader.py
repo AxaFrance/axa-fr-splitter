@@ -2,7 +2,7 @@ from typing import IO
 
 from magic import Magic
 
-from splitter.mime_reader_interface import IMimeReader
+from axa_fr_splitter.mime_reader_interface import IMimeReader
 
 
 class MagicMimeReader(IMimeReader):

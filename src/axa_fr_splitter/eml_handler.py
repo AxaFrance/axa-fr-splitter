@@ -7,9 +7,9 @@ from typing import Iterable, IO
 
 from eml_parser import EmlParser
 
-from splitter.errors import ConvertError
-from splitter.extension_handler_interface import IExtensionHandler
-from splitter.file import File
+from axa_fr_splitter.errors import ConvertError
+from axa_fr_splitter.extension_handler_interface import IExtensionHandler
+from axa_fr_splitter.file import File
 
 
 class ConvertEmlError(ConvertError):

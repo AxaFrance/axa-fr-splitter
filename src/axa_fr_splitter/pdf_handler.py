@@ -8,9 +8,9 @@ import fitz
 import numpy as np
 from fitz import Pixmap
 
-from splitter.file import build_file
-from splitter.errors import ConvertError
-from splitter.extension_handler_interface import IExtensionHandler
+from axa_fr_splitter.file import build_file
+from axa_fr_splitter.errors import ConvertError
+from axa_fr_splitter.extension_handler_interface import IExtensionHandler
 
 from .image import normalize_size
 

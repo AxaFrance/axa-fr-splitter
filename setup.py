@@ -7,9 +7,9 @@ with open("requirements.txt") as f:
 setuptools.setup(
     name="axa-fr-splitter",
     version=version.VERSION,
-    packages=["splitter"],
+    packages=["axa_fr_splitter"],
     package_dir={"": "src"},
-    package_data={"splitter": ["*"]},
+    package_data={"axa_fr_splitter": ["*"]},
     install_requires=requirements,
     author="AXA",
     author_email="guillaume.chervet@axa.fr",

@@ -1,14 +1,12 @@
 import time
 import logging
-from pathlib import Path
-
-from splitter.file_handler import FileHandler
-
 import unittest
 
-from splitter.mime_reader import MimeReader
-from splitter.pdf_handler import PdfHandlerParams
-from splitter.pdf_handler import FitzPdfHandler
+from pathlib import Path
+from axa_fr_splitter.file_handler import FileHandler
+from axa_fr_splitter.mime_reader import MimeReader
+from axa_fr_splitter.pdf_handler import PdfHandlerParams
+from axa_fr_splitter.pdf_handler import FitzPdfHandler
 
 BASE_PATH = Path(__file__).parent / "inputs"
 

@@ -1,6 +1,6 @@
 from typing import Iterable, Protocol, IO
 
-from splitter.file import File
+from axa_fr_splitter.file import File
 
 
 class IExtensionHandler(Protocol):
