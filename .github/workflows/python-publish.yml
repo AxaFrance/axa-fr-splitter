@@ -10,64 +10,58 @@ name: Upload Python Package
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: [ main, dev ]
+  workflow_dispatch:
 
 jobs:
-  unit_tests:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up Python
-        uses: actions/setup-python@v3
-        with:
-          python-version: '3.8'
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Run unit tests
-        run: |
-          cd src/
-          python -m unittest
+  tests:
+    name: 🧪 Running Tests
+    uses: ./.github/workflows/tests.yml
+
   tags:
+    name: 🏷️ Update Tags
     runs-on: ubuntu-latest
-    needs: unit_tests
+    needs: tests
     outputs:
       new_version: ${{ steps.tag.outputs.new_version }}
     steps:
-      - uses: actions/checkout@master
-      - name: Bump version and push tag
+      - uses: actions/checkout@v3
+        name: 🛎️ Checkout
+
+      - name: ⏫ Bump version and push tag
         id: tag_version
-        if: github.ref == 'refs/heads/main'
         uses: mathieudutour/github-tag-action@v6.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN  }}
-      - name: Add tag to output step
+          pre_release_branches: "dev"
+
+      - name: ✍️ Add tag to output step
         id: tag
-        if: github.ref == 'refs/heads/main'
         run: echo "::set-output name=new_version::${{ steps.tag_version.outputs.new_version }}"
+
   deploy:
+    name: 🚀 Publish
     runs-on: ubuntu-latest
     needs: tags
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python
-      uses: actions/setup-python@v3
-      with:
-        python-version: '3.x'
-    - name: Install dependencies
-      run: python -m pip install --upgrade pip build twine
+      - uses: actions/checkout@v3
+        name: 🛎️ Checkout
 
-    - name: Bump version
-      run: sed -i 's/__version_ = "0.0.0"/__version_ = "${{ needs.tags.outputs.new_version }}"/g' src/splitter/__init__.py
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.x'
 
-    - name: Build package
-      run: python -m build
+      - name: ⛓️ Install dependencies
+        run: python -m pip install --upgrade pip build twine
 
-    - name: Publish package
-      if: github.ref == 'refs/heads/main'
-      env:
-        TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
-      run: twine upload -u __token__ dist/*
+      - name: Bump version
+        run: sed -i 's/__version__ = "0.0.0"/__version__ = "${{ needs.tags.outputs.new_version }}"/g' src/splitter/__init__.py
+
+      - name: 🔨 Build package
+        run: python -m build
+
+      - name: 🚀 Publish Package
+        env:
+          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+        run: twine upload -u __token__ dist/*
