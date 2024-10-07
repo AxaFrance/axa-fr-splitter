@@ -1,0 +1,25 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: check-json
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-case-conflict
+      - id: check-added-large-files
+      - id: check-docstring-first
+      - id: requirements-txt-fixer
+      - id: detect-private-key
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.2.1
+    hooks:
+      - id: ruff-format
+      - id: ruff
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: 'v1.11.2'
+    hooks:
+    -   id: mypy
+        additional_dependencies: [returns, opencv-python-headless==4.9.0.80, eml-parser==1.17.5, python-magic==0.4.27]
+        files: 'src/.*?\.py$'  # Ignore tests
