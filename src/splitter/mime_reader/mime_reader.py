@@ -1,11 +1,12 @@
-import mimetypes
-from typing import IO
+from typing import BinaryIO
 
-from axa_fr_splitter.mime_reader_interface import IMimeReader
+import mimetypes
+
+from splitter.mime_reader.mime_reader_interface import IMimeReader
 
 
 class MimeReader(IMimeReader):
-    def get_mime_type(self, filepath: str, file_stream: IO) -> str:
+    def get_mime_type(self, filepath: str, file_stream: BinaryIO) -> str:
         return (
             mimetypes.guess_type(filepath, strict=False)[0]
             or "application/octet-stream"

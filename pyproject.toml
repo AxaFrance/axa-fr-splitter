@@ -1,0 +1,122 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+
+[project]
+name = "axa-fr-splitter"
+description = "This package splits PDF and TIFF files into separate PNGs and extracts text from input files."
+authors = [
+  {name = "Dhia Hmila", email = "dhia.hmila@axa.fr"},
+  {name = "Guillaume Chervet", email = "guillaume.chervet@axa.fr"},
+  {name = "Hicham Dakhli", email = "hicham.dakhli@axa.fr"},
+]
+license = {text = "MIT License"}
+requires-python = ">=3.10"
+keywords = ["pdf", "word", "tiff", "tif", "doc-proc"]
+readme = "README.md"
+dynamic = ['version']
+dependencies = ['returns>=0.20.0']
+classifiers = [
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+]
+
+[project.urls]
+# Documentation = "https://readthedocs.org"
+Repository = "https://github.com/AxaFrance/axa-fr-splitter"
+Issues = "https://github.com/AxaFrance/axa-fr-splitter/issues"
+
+[project.optional-dependencies]
+magic = ['python-magic>=0.4.27']
+image = ["opencv-python-headless>=4.7"]
+pdf = ["PyMuPdf>=1.21.1"]
+eml = ["eml-parser>=1.17.5"]
+dev = ["pytest", "opencv-python-headless>=4.9"]
+all = ["opencv-python-headless>=4.7", "PyMuPdf>=1.21.1", "eml-parser>=1.17.5", 'python-magic>=0.4.27']
+
+
+[tool.hatch.version]
+path = "src/splitter/__init__.py"
+
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/splitter"]
+sources = ["src"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+extend-exclude = ["tests", "stubs"]
+
+[tool.ruff.lint]
+select = ["A", "B", "C90", "E", "F", "W", "S", "RUF", "PL"]
+extend-select = [
+    "FA", "UP", "SIM", # Upgrading or simplify syntax to more recent versions/PEPs
+    "D4", "N", "PERF", "NPY", "TID", # Recommended
+    "BLE", "PIE", "ICN", "ISC",  "PYI", # Nice to have
+
+    # "DTZ" # Datetime
+    # "G", # Logging Format
+    # "ANN", # Type hint annotations
+    # "D", # doc strings
+    # "PT" # pytest
+]
+extend-ignore = ["ANN101", "E712", "PLR2004"]
+
+[tool.ruff.lint.per-file-ignores]
+"test_*.py" = ["S101"]
+
+[tool.ruff.lint.pycodestyle]
+max-line-length = 100
+ignore-overlong-task-comments = true
+
+[tool.ruff.lint.mccabe]
+max-complexity = 6
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+docstring-code-format = false
+
+
+[tool.mypy]
+mypy_path = "stubs"
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+strict = true
+ignore_missing_imports = true
+no_implicit_optional = false
+plugins = ["numpy.typing.mypy_plugin", "returns.contrib.mypy.returns_plugin"]
+
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+minversion = 3.10.0
+envlist = py310, py311, py312
+isolated_build = true
+skip_missing_interpreters = true
+
+[gh-actions]
+python =
+    3.10: py310
+    3.11: py311
+    3.12: py312
+
+[testenv]
+setenv =
+    PYTHONPATH = {toxinidir}
+deps =
+    -r{toxinidir}/requirements-dev.in
+    .[all]
+commands =
+    pytest --basetemp={envtmpdir}
+"""

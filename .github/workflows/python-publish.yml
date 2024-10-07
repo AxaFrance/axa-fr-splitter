@@ -58,15 +58,16 @@ jobs:
       with:
         python-version: '3.x'
     - name: Install dependencies
-      run: |
-        echo 'VERSION = "${{ needs.tags.outputs.new_version }}"' >| version.py
-        python -m pip install --upgrade pip
-        python -m pip install --upgrade setuptools wheel
+      run: python -m pip install --upgrade pip build twine
+
+    - name: Bump version
+      run: sed -i 's/__version_ = "0.0.0"/__version_ = "${{ needs.tags.outputs.new_version }}"/g' src/splitter/__init__.py
+
     - name: Build package
-      run: python setup.py sdist bdist_wheel
+      run: python -m build
+
     - name: Publish package
       if: github.ref == 'refs/heads/main'
-      uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
-      with:
-        user: __token__
-        password: ${{ secrets.PYPI_API_TOKEN }}
+      env:
+        TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+      run: twine upload -u __token__ dist/*
