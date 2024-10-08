@@ -36,14 +36,15 @@ magic = ['python-magic>=0.4.27']
 image = ["opencv-python-headless>=4.7"]
 pdf = ["PyMuPdf>=1.21.1"]
 eml = ["eml-parser>=1.17.5"]
-langchain = ["langchain>=0.3.0"]
+langchain = ["langchain-core>=0.3.0", "langchain-community>=0.3.0"]
 tests = [
     "opencv-python-headless>=4.7",
     "PyMuPdf>=1.21.1",
     "eml-parser>=1.17.5",
     "python-magic>=0.4.27",
-    "langchain>=0.3.0",
-    "pdfminer.six>=20201018",
+    "langchain-core>=0.3.0",
+    "langchain-community>=0.3.0",
+    "pdfminer.six>=20231228",
 ]
 
 
@@ -122,6 +123,7 @@ python =
 setenv =
     PYTHONPATH = {toxinidir}
 deps =
+    -r{toxinidir}/requirements-dev.in
     .[tests]
 commands =
     pytest --basetemp={envtmpdir}
