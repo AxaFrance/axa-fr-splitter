@@ -37,7 +37,7 @@ jobs:
 
       - name: ✍️ Add tag to output step
         id: tag
-        run: echo "::set-output name=new_version::${{ steps.tag_version.outputs.new_version }}"
+        run: echo "new_version=${{ steps.tag_version.outputs.new_version }}" >> $GITHUB_OUTPUT
 
   deploy:
     name: 🚀 Publish
